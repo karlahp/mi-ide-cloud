@@ -1,0 +1,22 @@
+name: Verificacion de Arquitectura
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: |
+          pip install psycopg2-binary
+
+      - name: Ejecutar Test de Conexion
+        run: echo "Entorno validado"

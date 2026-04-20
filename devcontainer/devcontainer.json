@@ -1,0 +1,20 @@
+{
+"name": "Entorno de Arquitectura Avanzada",
+"build": { "dockerfile": "Dockerfile" },
+"features": {
+"ghcr.io/devcontainers/features/postgres:1": {
+"version": "16",
+"databaseName": "estudiante_db",
+"adminPassword": "password123"
+}
+},
+"customizations": {
+"vscode": {
+"extensions": [
+"ms-python.python",
+"ckotzb.postgresql" // Extensión para ver tablas en VS Code
+]
+}
+},
+"postCreateCommand": "pip install pandas psycopg2-binary"
+}
