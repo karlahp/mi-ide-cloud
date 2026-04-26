@@ -5,8 +5,9 @@ import logging
 from ingestion.lectura_csv import leer_datos_csv
 from ingestion.leer_batch import leer_datos_batch
 from ingestion.fuente_realtime import leer_clima_tiempo_real
+from procesamiento.transformacion import aplicar_transformaciones
 
-# --- CONFIGURACIÓN DE LOGGING (Requisito de la actividad) ---
+# --- CONFIGURACIÓN DE LOGGING  ---
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -44,9 +45,12 @@ def run_orchestator():
         almacen_datos['clima'] = pd.DataFrame()
         logging.error("No se pudo recolectar el clima.")
 
-    print("\n--- Resumen de datos sin transformar ---")
+    print("\n--- Iniciando Transformación de datos ---")
+    almacen_datos = aplicar_transformaciones(almacen_datos)
+
+    print("\n--- Resumen de datos TRANSFORMADOS en almacen_datos ---")
     for elemento, df in almacen_datos.items():
-        print(f"\n📍 FUENTE: {elemento}")
+        print(f"\n FUENTE: {elemento}")
         if not df.empty:
             print(f"Rows: {len(df)} | Columns: {list(df.columns)}")
             print(df.head(2))
