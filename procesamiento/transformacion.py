@@ -1,7 +1,7 @@
 import pandas as pd
 import logging
 
-# Configuración de logging para trazabilidad
+# Configuración de logging para trazabilidad, esto hace que el ingesta.log aparezca la info con datos y forma ordenada
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s"
