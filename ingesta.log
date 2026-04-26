@@ -1,0 +1,6 @@
+2026-04-26 20:25:19,260 - INFO - Iniciando orquestador de ingesta...
+2026-04-26 20:25:19,269 - INFO - CSV cargado correctamente. Total líneas importadas: 1309
+2026-04-26 20:25:19,270 - INFO - CSV Titanic cargado correctamente.
+2026-04-26 20:25:20,557 - INFO - Batch completado: 10 libros obtenidos (tema: scifi).
+2026-04-26 20:25:20,559 - INFO - Batch de libros cargado.
+2026-04-26 20:25:27,571 - INFO - Datos del clima recolectados exitosamente.
