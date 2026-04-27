@@ -1,6 +1,7 @@
 import pandas as pd
 import time
 import logging
+import os
 
 from ingestion.lectura_csv import leer_datos_csv
 from ingestion.leer_batch import leer_datos_batch
@@ -56,7 +57,13 @@ def run_orchestator():
             print(df.head(2))
         else:
             print("Datos vacíos o con error")
-            
+
+    # ── GUARDAR DATASET LIMPIO ──────────────────────────────
+    os.makedirs("data/processed", exist_ok=True)
+    almacen_datos["Titanic"].to_csv("data/processed/titanic_limpio.csv", index=False)
+    logging.info("Dataset Titanic limpio guardado en data/processed/titanic_limpio.csv")
+    # ───────────────────────────────────────────────────────
+
     return almacen_datos
 
 if __name__ == "__main__":
